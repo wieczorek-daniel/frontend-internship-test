@@ -42,8 +42,25 @@ submitButton.onclick = function(){
         alertMessage.parentElement.style.display = "block";
         alertMessage.innerHTML = "Confirm agreements."
     }
+    // Show new message
     else {
-        alertMessage.parentElement.style.display = "block";
-        alertMessage.innerHTML = "That's correct."
+        alertMessage.parentElement.style.display = "none";
+        let timer = 3;
+
+        function counter(){        
+            submitButton.innerHTML = "Wait "+timer+" seconds..."   
+            setTimeout(function(){   
+                timer--;                    
+                if (timer >= 0){           
+                    counter();             
+                }
+                if (timer==0){
+                    popup.style.display = "none";
+                    document.querySelector('.main h1').style.display = 'block';
+                }                    
+            }, 1000)
+        }
+
+        counter();
     }
 }
