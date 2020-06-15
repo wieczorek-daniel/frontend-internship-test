@@ -1,2 +1,74 @@
 // Here goes your CSS
 @import 'layout/main';
+
+$popup-background: #fff;
+$button-font: #fff;
+$button-background: #000;
+$button-hover: #f00;
+
+.popup {
+  background-color: $popup-background;
+  border-radius: 10px;
+  display: none;
+  font-size: 16px;
+  height: 360px;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 310px;
+
+  & h1 {
+    font-family: 'Lobster', cursive;
+  }
+
+  & .popup-form {
+    padding-top: 25px;
+
+    & input:nth-child(-n + 3) {
+      border: solid 2px;
+      display: block;
+      height: 40px;
+      margin: 20px auto;
+      padding: 0 20px;
+      width: 200px;
+    }
+
+    & input[type='checkbox'] {
+      margin-right: 20px;
+      transform: scale(2);
+    }
+
+    & button[type='submit'] {
+      background-color: $button-background;
+      border: 0;
+      color: $button-font;
+      cursor: pointer;
+      display: block;
+      font-weight: 600;
+      height: 40px;
+      margin: 30px auto;
+      text-transform: uppercase;
+      width: 240px;
+    }
+  }
+}
+
+.close-popup-form {
+  align-items: center;
+  background-color: $button-background;
+  border-radius: 50%;
+  border-width: 0;
+  color: $button-font;
+  cursor: pointer;
+  display: flex;
+  font-size: 22px;
+  font-weight: 700;
+  height: 32px;
+  justify-content: center;
+  position: absolute;
+  right: -5px;
+  top: -5px;
+  width: 32px;
+}
