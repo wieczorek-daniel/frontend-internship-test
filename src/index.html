@@ -18,15 +18,20 @@
       <!-- Here goes your popup form HTML code -->
       <form class="popup-form">
         <h1>Login</h1>
-        <input type="email" name="email" placeholder="E-mail">
-        <input type="password" name="password" placeholder="Password">
-        <input type="checkbox" id="agreement" name="agreement">
-        <label for="agreement">I agree to terms & conditions.</label>
-        <button type="submit" >Submit</button>
+        <input type="email" id="email" name="email" placeholder="E-mail">
+        <input type="password" id="password" name="password" placeholder="Password">
+        <div class="agreement-box">
+          <input type="checkbox" id="agreement" name="agreement">
+          <label for="agreement">I agree to terms & conditions.</label>
+        </div>
+        <button type="button" class="form-submit">Submit</button>
         <button class="close-popup-form">
           <span>&#10006;</span>
         </button>
-      </form> 
+      </form>
+      <div class="alert">
+        <p id="alert-message"></p>
+      </div> 
     </div>
     <script src="js/index.min.js" charset="utf-8"></script>
   </body>

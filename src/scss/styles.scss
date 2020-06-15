@@ -5,6 +5,7 @@ $popup-background: #fff;
 $button-font: #fff;
 $button-background: #000;
 $button-hover: #f00;
+$checkbox-color: #000;
 
 .popup {
   background-color: $popup-background;
@@ -35,12 +36,48 @@ $button-hover: #f00;
       width: 200px;
     }
 
-    & input[type='checkbox'] {
-      margin-right: 20px;
-      transform: scale(2);
+    & .agreement-box {
+      & input[type='checkbox'] {
+        cursor: pointer;
+        display: none;
+        height: initial;
+        width: initial;
+      }
+
+      & label {
+        cursor: pointer;
+        position: relative;
+      }
+
+      & label::before {
+        -webkit-appearance: none;
+        appearance: none;
+        background-color: transparent;
+        border: solid 2px $checkbox-color;
+        content: '';
+        cursor: pointer;
+        display: inline-block;
+        margin-right: 10px;
+        padding: 10px;
+        position: relative;
+        vertical-align: middle;
+      }
+
+      & input[type='checkbox']:checked + label::after {
+        border: solid 2px $checkbox-color;
+        border-width: 0 2px 2px 0;
+        content: '';
+        display: block;
+        height: 14px;
+        left: 8px;
+        position: absolute;
+        top: 2px;
+        transform: rotate(45deg);
+        width: 6px;
+      }
     }
 
-    & button[type='submit'] {
+    & .form-submit {
       background-color: $button-background;
       border: 0;
       color: $button-font;
@@ -51,6 +88,11 @@ $button-hover: #f00;
       margin: 30px auto;
       text-transform: uppercase;
       width: 240px;
+
+      &:hover {
+        background-color: $button-hover;
+        opacity: .5;
+      }
     }
   }
 }
@@ -63,7 +105,7 @@ $button-hover: #f00;
   color: $button-font;
   cursor: pointer;
   display: flex;
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
   height: 32px;
   justify-content: center;
@@ -71,4 +113,24 @@ $button-hover: #f00;
   right: -5px;
   top: -5px;
   width: 32px;
+}
+
+.alert {
+  background-color: transparent;
+  border: solid 2px;
+  border-radius: 10px;
+  color: $button-font;
+  display: none;
+  font-weight: 600;
+  height: 30px;
+  margin: auto;
+  position: relative;
+  text-shadow: 1px 1px #000;
+  top: 20px;
+  width: 310px;
+
+  & p {
+    margin: 0;
+    padding: 5px 0;
+  }
 }
