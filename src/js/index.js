@@ -28,19 +28,23 @@ submitButton.onclick = function(){
   
     if (passwordValue == ""){
         alertMessage.parentElement.style.display = "block";
-        alertMessage.innerHTML = "You forgot about your password."
+        alertMessage.innerHTML = "You forgot about your password.";
 
         if (emailValue == ""){
-            alertMessage.innerHTML = "Fill all form fields."
+            alertMessage.innerHTML = "Fill all form fields.";
         }
+    }
+    else if (passwordValue.length < 8){
+        alertMessage.parentElement.style.display = "block";
+        alertMessage.innerHTML = "Password is too short.";
     }
     else if (regex.test(emailValue) == false){
         alertMessage.parentElement.style.display = "block";
-        alertMessage.innerHTML = "There's problem with your e-mail."
+        alertMessage.innerHTML = "There's problem with your e-mail.";
     }
     else if (agreementChecked == false){
         alertMessage.parentElement.style.display = "block";
-        alertMessage.innerHTML = "Confirm agreements."
+        alertMessage.innerHTML = "Confirm agreements.";
     }
     // Show new message
     else {
@@ -48,7 +52,7 @@ submitButton.onclick = function(){
         let timer = 3;
 
         function counter(){        
-            submitButton.innerHTML = "Wait "+timer+" seconds..."   
+            submitButton.innerHTML = "Wait "+timer+" seconds...";   
             setTimeout(function(){   
                 timer--;                    
                 if (timer >= 0){           
